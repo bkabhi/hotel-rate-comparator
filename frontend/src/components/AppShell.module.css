@@ -1,0 +1,181 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* --- Top bar -------------------------------------------------------------- */
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  height: var(--header-h);
+  padding-inline: var(--s6);
+  border-bottom: 1px solid var(--line);
+  background: rgb(11 12 14 / 0.86);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: var(--r-md);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.wordmark {
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  white-space: nowrap;
+}
+
+.tagline {
+  padding-left: var(--s3);
+  border-left: 1px solid var(--line);
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.barRight {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-left: auto;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  height: 1.625rem;
+  padding-inline: var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  background: var(--surface);
+  font-size: var(--text-xs);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.queue {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-3);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-3);
+  flex-shrink: 0;
+}
+
+.dotOk {
+  background: var(--ok);
+  box-shadow: 0 0 0 3px var(--ok-tint);
+}
+
+.dotDown {
+  background: var(--danger);
+  box-shadow: 0 0 0 3px var(--danger-tint);
+}
+
+.uiLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  height: 1.625rem;
+  padding-inline: var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: var(--text-xs);
+  text-decoration: none;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.uiLink:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+/* --- Body ----------------------------------------------------------------- */
+
+.main {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding: var(--s6);
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+  gap: var(--s5);
+  align-items: start;
+}
+
+.rail {
+  display: grid;
+  gap: var(--s5);
+  position: sticky;
+  top: calc(var(--header-h) + var(--s6));
+}
+
+@media (max-width: 68rem) {
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rail {
+    position: static;
+  }
+}
+
+/* Below the tablet breakpoint the bar keeps its meaning but sheds its words:
+   the health pill becomes a dot, the UI link becomes its glyph. */
+@media (max-width: 52rem) {
+  .tagline,
+  .queue {
+    display: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .bar {
+    padding-inline: var(--s4);
+    gap: var(--s2);
+  }
+
+  .pillText,
+  .linkText {
+    display: none;
+  }
+
+  .pill,
+  .uiLink {
+    padding-inline: var(--s2);
+  }
+
+  .main {
+    padding: var(--s4);
+    gap: var(--s4);
+  }
+}

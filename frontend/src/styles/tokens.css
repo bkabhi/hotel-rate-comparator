@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Design tokens — a dark operator console.
+
+   The palette is restrained on purpose: near-black surfaces, one accent
+   (electric lime) reserved for the primary action and the winning rate, and a
+   small semantic set for supplier state. Everything else is neutral.
+   ========================================================================== */
+
+:root {
+  /* --- Surfaces --------------------------------------------------------- */
+  --bg: #0b0c0e;
+  --surface: #111316;
+  --surface-2: #171a1e;
+  --surface-3: #1e2229;
+  --line: #23272e;
+  --line-strong: #303640;
+
+  /* --- Text (all ≥ 4.5:1 on --bg) --------------------------------------- */
+  --text: #e9ebee;
+  --text-2: #a4abb6;
+  --text-3: #7d8695;
+
+  /* --- Accent: electric lime -------------------------------------------- */
+  --accent: #c6f24e;
+  --accent-hover: #d3f76e;
+  --accent-ink: #0b0c0e;
+  --accent-tint: rgb(198 242 78 / 0.1);
+  --accent-tint-strong: rgb(198 242 78 / 0.18);
+  --accent-line: rgb(198 242 78 / 0.34);
+
+  /* --- Semantic state --------------------------------------------------- */
+  --info: #74a9ff;
+  --info-tint: rgb(116 169 255 / 0.13);
+  --warn: #f0b24a;
+  --warn-tint: rgb(240 178 74 / 0.13);
+  --ok: #59d49a;
+  --ok-tint: rgb(89 212 154 / 0.13);
+  --danger: #f4736a;
+  --danger-tint: rgb(244 115 106 / 0.13);
+  --danger-line: rgb(244 115 106 / 0.32);
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono',
+    Menlo, monospace;
+
+  --text-2xs: 0.6875rem; /* 11px — uppercase labels */
+  --text-xs: 0.75rem; /* 12px — meta, table headers */
+  --text-sm: 0.8125rem; /* 13px — dense body */
+  --text-base: 0.875rem; /* 14px — body */
+  --text-md: 1rem; /* 16px — panel titles */
+  --text-lg: 1.1875rem; /* 19px — section headings */
+  --text-xl: 1.4375rem; /* 23px — result headline */
+  --text-2xl: 2.125rem; /* 34px — the winning price */
+
+  /* --- Space (4px grid) ------------------------------------------------- */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+  --s10: 2.5rem;
+  --s12: 3rem;
+
+  /* --- Radius ----------------------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-full: 999px;
+
+  /* --- Depth ------------------------------------------------------------ */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 16px -8px rgb(0 0 0 / 0.7);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 40px -18px rgb(0 0 0 / 0.8);
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 130ms;
+  --dur: 190ms;
+  --dur-slow: 340ms;
+
+  --header-h: 3.5rem;
+  --rail-w: 25rem;
+}

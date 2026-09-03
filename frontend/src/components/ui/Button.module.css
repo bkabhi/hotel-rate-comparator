@@ -1,0 +1,100 @@
+.button {
+  --btn-bg: var(--surface-2);
+  --btn-fg: var(--text);
+  --btn-line: var(--line-strong);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  height: 2.25rem;
+  padding-inline: var(--s4);
+  border: 1px solid var(--btn-line);
+  border-radius: var(--r-md);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: var(--text-sm);
+  font-weight: 540;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--surface-3);
+  border-color: #3c4450;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0.5px);
+}
+
+.button:disabled {
+  opacity: 0.45;
+}
+
+/* --- Variants ------------------------------------------------------------- */
+
+.primary {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--accent-ink);
+  --btn-line: transparent;
+  font-weight: 620;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: transparent;
+}
+
+.ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--text-2);
+  --btn-line: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--surface-2);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.danger {
+  --btn-bg: transparent;
+  --btn-fg: var(--danger);
+  --btn-line: var(--danger-line);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--danger-tint);
+  border-color: var(--danger);
+}
+
+/* --- Sizes ---------------------------------------------------------------- */
+
+.block {
+  width: 100%;
+  height: 2.5rem;
+}
+
+.small {
+  height: 1.875rem;
+  padding-inline: var(--s3);
+  font-size: var(--text-xs);
+}
+
+/* --- Loading -------------------------------------------------------------- */
+
+.spinner {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

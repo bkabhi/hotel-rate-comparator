@@ -1,0 +1,116 @@
+.pane {
+  display: grid;
+  gap: var(--s5);
+  align-content: start;
+}
+
+/* --- Run header: what is happening, and how long it has taken -------------- */
+
+.runHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s5);
+  border-bottom: 1px solid var(--line);
+}
+
+.phase {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-shrink: 0;
+  font-size: var(--text-sm);
+  font-weight: 540;
+}
+
+.phaseIcon {
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+}
+
+.phaseLive {
+  color: var(--accent);
+}
+
+.runMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.elapsed {
+  min-width: 4.25rem;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.searchId {
+  min-width: 0;
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-3);
+}
+
+/* A slow indeterminate line, so a long run still feels attended to. */
+.progressLine {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: run 1.8s var(--ease-out) infinite;
+}
+
+@keyframes run {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(360%);
+  }
+}
+
+/* --- Result sections ------------------------------------------------------ */
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.sectionTitle {
+  font-size: var(--text-2xs);
+  font-weight: 580;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.sectionMeta {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.outcomeNote {
+  padding: var(--s3) var(--s5);
+  border-top: 1px solid var(--line);
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}

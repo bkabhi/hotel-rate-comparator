@@ -1,0 +1,177 @@
+.scroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.table th {
+  padding: var(--s2) var(--s5);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text-3);
+  font-size: var(--text-2xs);
+  font-weight: 580;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--s3) var(--s5);
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr {
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.table tbody tr:hover {
+  background: var(--surface-2);
+}
+
+/* The winning row is tinted rather than bar-marked, so it reads as one row. */
+.best {
+  background: var(--accent-tint);
+}
+
+.best:hover {
+  background: var(--accent-tint-strong);
+}
+
+.hotel {
+  min-width: 12rem;
+}
+
+.hotelName {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-weight: 520;
+}
+
+.bestChip {
+  display: inline-flex;
+  align-items: center;
+  height: 1.125rem;
+  padding-inline: var(--s2);
+  border-radius: var(--r-full);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 10px;
+  font-weight: 680;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hotelMeta {
+  margin-top: 1px;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.supplier {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  white-space: nowrap;
+}
+
+.supplierMark {
+  display: grid;
+  place-items: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.supplierName {
+  color: var(--text-2);
+  font-size: var(--text-xs);
+}
+
+.numeric {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.total {
+  font-weight: 580;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-2);
+  font-size: var(--text-xs);
+}
+
+.star {
+  color: var(--warn);
+}
+
+/* Below the fold of a phone, the table becomes stacked records. */
+@media (max-width: 40rem) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    padding: var(--s3) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .table td {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s4);
+    padding: var(--s1) var(--s5);
+    border: none;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    /* The cell may be monospaced for its figures; its label never is. */
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--text-3);
+  }
+
+  .table td.hotel {
+    display: block;
+  }
+
+  .table td.hotel::before {
+    display: none;
+  }
+
+  .numeric {
+    text-align: right;
+  }
+}

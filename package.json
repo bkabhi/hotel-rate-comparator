@@ -1,0 +1,27 @@
+{
+  "name": "hotel-rate-comparator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hotel rate comparator — Temporal-orchestrated supplier fan-out with a React operator console.",
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "setup": "npm --prefix backend install && npm --prefix frontend install && npm --prefix backend run temporal:install",
+
+    "temporal": "npm --prefix backend run temporal:dev",
+    "dev": "concurrently -n suppliers,worker,api,web -c magenta,cyan,green,yellow \"npm:dev:suppliers\" \"npm:dev:worker\" \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:suppliers": "npm --prefix backend run dev:suppliers",
+    "dev:worker": "npm --prefix backend run dev:worker",
+    "dev:api": "npm --prefix backend run dev:api",
+    "dev:web": "npm --prefix frontend run dev",
+
+    "test": "npm --prefix backend test",
+    "test:unit": "npm --prefix backend run test:unit",
+    "test:workflow": "npm --prefix backend run test:workflow",
+
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "typecheck": "npm --prefix backend run typecheck && npm --prefix frontend run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
